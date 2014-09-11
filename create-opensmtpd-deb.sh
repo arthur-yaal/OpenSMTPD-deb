@@ -13,7 +13,7 @@ mkdir -p "$pdir"
 # Check to see if the most recent commit is new by comparing timestamp with
 # previously built packages.
 cd "$sdir"
-git pull -q
+
 cdate=$(git log -n 1 --date=iso --format=%ci)
 version=$(date --date="$cdate" -u +%Y%m%d%H%M%S)"-gitp"
 test ! -f "$pdir"/opensmtpd-${version}_amd64.deb
@@ -94,7 +94,7 @@ env EDITOR="sed -i -r -e '/^(Vendor: |License: ).*$/d'" /usr/local/bin/fpm \
 		-ef -s dir -t deb -n opensmtpd -v "$version" -C "$idir" \
 		-p "$pdir"/opensmtpd-VERSION_ARCH.deb \
 		-d "libc6" \
-		-d "libdb5.3" \
+		-d "libdb5.1" \
 		-d "libevent-2.0-5" \
 		-d "libpam0g" \
 		-d "libssl1.0.0" \
