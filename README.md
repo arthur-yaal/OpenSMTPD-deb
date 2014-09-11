@@ -23,7 +23,7 @@ Both installation and uninstallation respect DESTDIR.
 
 ## Installation
 
-    git clone git://github.com/sinecure/OpenSMTPD-deb.git
+    git clone -b 5.4.2p1 git://github.com/arthur-yaal/OpenSMTPD-deb.git
     cd OpenSMTPD-deb
     make install
 

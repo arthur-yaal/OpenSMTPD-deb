@@ -5,7 +5,7 @@ set -e
 sdir="%%OpenSMTPD%%"
 pdir="%%packages%%"
 edir="%%sysconfdir%%/OpenSMTPD-deb"
-tdir="$(mktemp -d --tmpdir=$HOME/tmp)"
+tdir="$(mktemp -d --tmpdir=/tmp)"
 idir="$tdir/installdir"
 
 mkdir -p "$pdir"
