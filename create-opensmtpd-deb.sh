@@ -7,12 +7,15 @@ pdir="%%packages%%"
 edir="%%sysconfdir%%/OpenSMTPD-deb"
 tdir="$(mktemp -d --tmpdir=/tmp)"
 idir="$tdir/installdir"
+opensmtp_version="5.4.2p1"
 
 mkdir -p "$pdir"
 
 # Check to see if the most recent commit is new by comparing timestamp with
 # previously built packages.
+git clone -b portable git://github.com/OpenSMTPD/OpenSMTPD.git "$sdir"
 cd "$sdir"
+git checkout "tags/$opensmtp_version"
 
 cdate=$(git log -n 1 --date=iso --format=%ci)
 version=$(date --date="$cdate" -u +%Y%m%d%H%M%S)"-gitp"
