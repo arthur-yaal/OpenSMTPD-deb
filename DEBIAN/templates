@@ -1,0 +1,31 @@
+Template: opensmtpd/mailname
+Type: string
+Default:
+Description: System mail name:
+ The "mail name" is used as the domain name in the email address for
+ messages that only have a "local part" (such as <jrandomuser> or
+         <root>). It should be a fully qualified domain name (FQDN) that you are
+ entitled to use.
+ .
+ For instance, to allow the local host to generate mail with addresses
+ such as <jrandomuser@example.org>, set the system mail name to
+ "example.org".
+ .
+ This mail name is used as the hostname in the SMTP greeting banner, and
+ will also be used by other programs.
+
+Template: opensmtpd/root_address
+Type: string
+Default:
+Description: Root and postmaster mail recipient:
+ Mail for the "postmaster", "root", and other system accounts should be
+ redirected to the user account(s) of the actual system administrator(s).
+ .
+ Please enter a comma-separated list of the usernames of the intended
+ recipients. Leave this field blank to not create an alias for "root";
+ in this case, the root account will receive mail addressed to
+ "postmaster" and other system accounts, assuming aliases for these
+ accounts do not already exist.
+
+
+
